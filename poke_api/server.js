@@ -6,8 +6,13 @@ const app = express()
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // IS THIS NEXT LINE CORRECT?
 app.use(express.static(path.join(__dirname, '/public/dist/public')));
+
+// app.get('/',(req, res)=>{
+//     res.send("hello world")
+// })
 
 
 

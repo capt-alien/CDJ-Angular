@@ -21,17 +21,18 @@
   <h5>Task: {{task.title}}</h5>
 
   <button (click)="showTaskDetails(task._id)">Click for Details</button>
+  <button (click)="completeTask(task._id)">Complete Task</button><br>
   <button (click)="deleteTask(task._id)">Delete Task</button>
-
- 
 
 </div>
 
-<!-- <router-outlet></router-outlet> -->
 <div *ngIf="task" id="a_task" >
     <h5>Task: {{task.title}}</h5>
     <p>Description: {{task.desc}}</p>
     <p>Complete: {{task.completed}}</p>
   </div>
-
 </div>
+
+<!-- <router-outlet></router-outlet> -->
+
+

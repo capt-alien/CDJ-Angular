@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { HttpService } from './http.service';
 import { observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,13 +10,11 @@ import { observable } from 'rxjs';
 })
 
 
-
 export class AppComponent implements OnInit {
   newTask: any;
   task: any;
   tasks = [];
   errors: any = [];
-
 
   constructor(private _httpService:HttpService){}
 
@@ -34,9 +33,7 @@ export class AppComponent implements OnInit {
   }
   // READ ONE
   showTaskDetails(id){
-    console.log(id)
     const observable = this._httpService.getOnebyID(id);
-    console.log(observable)
     observable.subscribe((data:any)=>{
       console.log("got task", data);
       this.task = data
@@ -44,14 +41,20 @@ export class AppComponent implements OnInit {
   }
   // DELETE
   deleteTask(id){
-    console.log(id)
     const observable = this._httpService.deleteOneById(id);
     console.log(id+" deleted");
     observable.subscribe((data: any)=>{
       this.showAllTasksOnClick();
     })
-
   }
+  // EDIT
+  completeTask(id){
+    const observable = this._httpService.editOneById(id, {"completed":"true"})
+    console.log(id+": finished")
+    observable.subscribe((data: any)=>{
+      this.showTaskDetails(id);
+  })}
+
   // CREATE
   onSubmit(){
     // debugger;

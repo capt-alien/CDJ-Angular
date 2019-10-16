@@ -1,0 +1,37 @@
+<div id="container">
+<h1>All Tasks All the Time!!!</h1>
+<div id="new_task">
+  <h4>New Task</h4>
+<!-- FORM GOES HERE -->
+<form (submit)="onSubmit()">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p> {{ newTask | json }} </p>
+    <p>Title:</p><input type="text" name="title" [(ngModel)]="newTask.title" placeholder="find a job hippie"/><br>
+    <p>Description:</p><input type="text" name="desc" [(ngModel)]="newTask.desc" placeholder="like now!!!"/><br>
+    <input type="submit" value="Create Task" /><br>
+</form>
+
+
+</div>
+
+<!-- Create button to get all tasks -->
+<button (click)="showAllTasksOnClick()">show all Tasks</button>
+
+<div  id='all_tasks'  *ngFor= "let task of tasks">
+  <h5>Task: {{task.title}}</h5>
+
+  <button (click)="showTaskDetails(task._id)">Click for Details</button>
+  <button (click)="deleteTask(task._id)">Delete Task</button>
+
+ 
+
+</div>
+
+<!-- <router-outlet></router-outlet> -->
+<div *ngIf="task" id="a_task" >
+    <h5>Task: {{task.title}}</h5>
+    <p>Description: {{task.desc}}</p>
+    <p>Complete: {{task.completed}}</p>
+  </div>
+
+</div>

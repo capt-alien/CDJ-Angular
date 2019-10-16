@@ -1,0 +1,33 @@
+#container{
+    width: auto;
+    height: auto;
+    border-style: double;
+    border-color: rgb(166, 255, 0);
+    padding:20px;
+}
+
+#all_tasks{
+    width: auto;
+    height: auto;
+    border-style: double;
+    border-color: red;
+    padding:5px;
+    margin:5px;
+
+}
+#a_task{
+    width: auto;
+    height: auto;
+    border-style: double;
+    border-color: green;
+    padding:5px;
+    margin:10px;
+}
+#new_task{
+    width: auto;
+    height: auto;
+    border-style: double;
+    border-color: rgba(108, 10, 128, 0.783);
+    padding:5px;
+    margin:10px;
+}
